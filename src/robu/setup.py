@@ -21,8 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'ex10_wallfollower = robu.ex10_wallfollower:main',
-             'mypublisher = robu.publisher_member_function:main',
-             'mysubscriber = robu.subscriber_member_function:main
+            'mypublisher = robu.publisher_member_function:main',
+            'mysubscriber = robu.subscriber_member_function:main'
         ],
     },
 )

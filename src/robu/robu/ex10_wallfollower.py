@@ -29,7 +29,7 @@ class WallFollowerStates(IntEnum):
 
 
 
-class WallFollower(rclpy.Node):
+class WallFollower(rclpy.node.Node):
     def __init__(self):
         super().__init__('WallFollower')
         self.scan_subscriber = self.create_subscription(LaserScan, "/scan", self.scan_callback, qos_profile_sensor_data)

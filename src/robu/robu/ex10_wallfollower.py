@@ -13,13 +13,13 @@ from enum import IntEnum
 
 
 ROBOT_DIRECTION_FRONT_INDEX = 0
-ROBOT_DIRECTION_LEFT_FRONT_INDEX = 315
-ROBOT_DIRECTION_RIGHT_FRONT_INDEX = 45
-ROBOT_DIRECTION_LEFT_INDEX = 270
-ROBOT_DIRECTION_RIGHT_INDEX = 90
+ROBOT_DIRECTION_LEFT_FRONT_INDEX = 60
+ROBOT_DIRECTION_RIGHT_FRONT_INDEX = 300
+ROBOT_DIRECTION_LEFT_INDEX = 90
+ROBOT_DIRECTION_RIGHT_INDEX = 270
 ROBOT_DIRECTION_REAR_INDEX = 180
-ROBOT_DIRECTION_LEFT_REAR_INDEX = 225
-ROBOT_DIRECTION_RIGHT_REAR_INDEX = 135
+ROBOT_DIRECTION_LEFT_REAR_INDEX = 120
+ROBOT_DIRECTION_RIGHT_REAR_INDEX = 240
 
 class WallFollowerStates(IntEnum):
     WF_STATE_INVALID = -1,
@@ -34,7 +34,7 @@ class WallFollower(Node):
     def __init__(self):
         super().__init__('WallFollower')
         self.scan_subscriber = self.create_subscription(LaserScan, "/scan", self.scan_callback, qos_profile_sensor_data)
-        self.cmd_vel_publisher = self.create_publisher(Twist, "/cmd_vel", qos_profile_sensor_data)
+        self.cmd_vel_publisher = self.create_publisher(Twist, "/cmd_vel", 10)
 
         self.left_dist = 9999999.9 #Initialisiere die Variable auf einen ungültigen Wert 
         self.leftfront_dist = 9999999.9
